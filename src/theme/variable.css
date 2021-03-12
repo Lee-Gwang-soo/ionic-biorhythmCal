@@ -1,0 +1,11 @@
+/* primary 색상 속성값 Custom하게 변경함 
+--ion-font-family: fontValue 를 통해서 글꼴도 변경가능함.
+*/
+:root {
+    --ion-color-primary: #ff389c; 
+    --ion-color-primary-rgb: 255,56,156;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255,255,255;
+    --ion-color-primary-shade: #e03189;
+    --ion-color-primary-tint: #ff4ca6;
+}
