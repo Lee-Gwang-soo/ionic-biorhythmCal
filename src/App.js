@@ -1,5 +1,15 @@
-import { IonButton, IonToast } from '@ionic/react'
+import { 
+  IonApp,
+  IonButton, 
+  IonContent, 
+  IonHeader, 
+  IonIcon, 
+  IonTitle, 
+  IonToast, 
+  IonToolbar
+} from '@ionic/react'
 import React, {useState} from 'react';
+import { play as playIcon } from 'ionicons/icons'
 
 function App() {
   const [showToast, setShowToast] = useState(false);
@@ -9,15 +19,30 @@ function App() {
     setTimeout(()=> setShowToast(false), 1500);
   }
   return (
-    <div>
-      <header>
-        <h1>My App</h1>
-      </header>
-      <main>
-        <IonButton onClick={handleClick}>Click Me</IonButton>
-        <IonToast isOpen={false} message="Hello world!" />
-      </main>
-    </div>
+    <IonApp> 
+      <IonHeader>
+        <IonToolbar>  
+        <IonTitle>My App</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent className="ion-padding">
+        {/* Ionbutton은 color 속성있음 (primary, secondary, warning 등등)
+        color 속성값들 : https://ionicframework.com/docs/theming/basics
+        IonIcon에는 slot 속성이 있음. (start , end, icon-only) */}
+        <IonButton color="primary" onClick={handleClick}>
+        <IonIcon icon={playIcon} slot="start"/>
+          Click Me
+        </IonButton>
+        <IonButton color="danger" onClick={handleClick}>
+        <IonIcon icon={playIcon} slot="end"/>
+          Click Me
+        </IonButton>
+        <IonButton color="warning" onClick={handleClick}>
+        <IonIcon icon={playIcon} slot="icon-only"/>
+        </IonButton>
+        <IonToast isOpen={showToast} message="Hello world!" />
+      </IonContent>
+    </IonApp>
   );
 }
 
